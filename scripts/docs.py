@@ -116,6 +116,7 @@ def write_all(root, rows, fam_rows, amb, FAMILIES, REASONS, RULECOUNT, RAW, VERS
     readme = []
     A = readme.append
     A("# %s\n" % TITLE)
+    A("[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24540799.svg)](https://doi.org/10.5281/zenodo.24540799)\n")
     A("Version %s, %s. Licence: CC-BY-4.0 (data), MIT (scripts). Published by %s. Contact: %s.\n" % (VERSION, RELEASE_DATE, ORG, CONTACT))
     A("A set of %d labelled strings for people who write or test blockchain address validators. Each row is a string and a verdict: is it a well-formed mainnet address of its family **under the cited specification**. The verdict is a property of the specification, not of any library. The set covers 12 address families (EVM-style accounts, Bitcoin, Litecoin, Dogecoin, Bitcoin Cash, Zcash transparent addresses, Solana, TRON, NEAR, TON, XRP Ledger and Stellar). Every valid string is taken from, or is a deterministic re-encoding of, a value printed in a specification, a test-vector list or other public documentation; every invalid string is either printed as invalid in a specification or produced from a valid one by a documented rule.\n" % n)
     A("Parts of this dataset, its scripts and this text were prepared with AI coding tools. Correctness does not rest on that: every label is computed twice, by two independent implementations written from the specifications (`scripts/build.py` and `scripts/verify.py`), and `scripts/verify.py` stops on any disagreement. See [Verification](#verification).\n")
@@ -210,7 +211,7 @@ python3 scripts/check-package.py              # datapackage.json against the dat
     A("## How to cite\n")
     A("""> %s. *%s*, version %s, %s. https://allswap.io/tools/address-validator
 
-DOI: assigned by Zenodo when this version is deposited there; it is added to the repository's README and `CITATION.cff` afterwards. `CITATION.cff` holds the machine-readable citation.
+DOI of version 1.0.0: <https://doi.org/10.5281/zenodo.24540799>. All versions: <https://doi.org/10.5281/zenodo.24540798>. `CITATION.cff` holds the machine-readable citation.
 
 Attribution: please credit "%s" and link to the licence. Suggested short form: "Blockchain address format test vectors, AllSwap, CC-BY-4.0".
 """ % (ORG, TITLE, VERSION, RELEASE_DATE[:4], ORG))
@@ -265,6 +266,7 @@ title: "%s"
 version: "%s"
 date-released: "%s"
 license: CC-BY-4.0
+doi: 10.5281/zenodo.24540799
 url: "%s"
 abstract: "%d labelled strings for testing blockchain address validators across 12 address families. Each label states whether the string is a well-formed mainnet address under the cited specification."
 keywords:

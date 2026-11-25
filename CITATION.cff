@@ -5,6 +5,7 @@ title: "Blockchain address format test vectors"
 version: "1.0.0"
 date-released: "2026-11-26"
 license: CC-BY-4.0
+doi: 10.5281/zenodo.24540799
 url: "https://allswap.io/tools/address-validator"
 abstract: "1386 labelled strings for testing blockchain address validators across 12 address families. Each label states whether the string is a well-formed mainnet address under the cited specification."
 keywords:

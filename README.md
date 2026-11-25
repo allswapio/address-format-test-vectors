@@ -1,5 +1,7 @@
 # Blockchain address format test vectors
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24540799.svg)](https://doi.org/10.5281/zenodo.24540799)
+
 Version 1.0.0, 2026-11-26. Licence: CC-BY-4.0 (data), MIT (scripts). Published by AllSwap (Haohang Network Technology Co., Limited). Contact: service@allswap.io.
 
 A set of 1386 labelled strings for people who write or test blockchain address validators. Each row is a string and a verdict: is it a well-formed mainnet address of its family **under the cited specification**. The verdict is a property of the specification, not of any library. The set covers 12 address families (EVM-style accounts, Bitcoin, Litecoin, Dogecoin, Bitcoin Cash, Zcash transparent addresses, Solana, TRON, NEAR, TON, XRP Ledger and Stellar). Every valid string is taken from, or is a deterministic re-encoding of, a value printed in a specification, a test-vector list or other public documentation; every invalid string is either printed as invalid in a specification or produced from a valid one by a documented rule.
@@ -259,7 +261,7 @@ The data (`data/`, `datapackage.json`, this README) is licensed under the Creati
 
 > AllSwap (Haohang Network Technology Co., Limited). *Blockchain address format test vectors*, version 1.0.0, 2026. https://allswap.io/tools/address-validator
 
-DOI: assigned by Zenodo when this version is deposited there; it is added to the repository's README and `CITATION.cff` afterwards. `CITATION.cff` holds the machine-readable citation.
+DOI of version 1.0.0: <https://doi.org/10.5281/zenodo.24540799>. All versions: <https://doi.org/10.5281/zenodo.24540798>. `CITATION.cff` holds the machine-readable citation.
 
 Attribution: please credit "AllSwap (Haohang Network Technology Co., Limited)" and link to the licence. Suggested short form: "Blockchain address format test vectors, AllSwap, CC-BY-4.0".
 
