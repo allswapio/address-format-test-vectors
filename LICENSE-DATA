@@ -1,0 +1,16 @@
+Blockchain address format test vectors
+
+The data in this repository (the files under data/, datapackage.json and README.md) is licensed under the
+Creative Commons Attribution 4.0 International Public Licence (CC BY 4.0).
+
+Licence summary:  https://creativecommons.org/licenses/by/4.0/
+Legal code:       https://creativecommons.org/licenses/by/4.0/legalcode
+
+You are free to share and adapt the data for any purpose, including commercially, provided you give appropriate
+credit, provide a link to the licence and indicate if changes were made.
+
+Attribution: AllSwap (Haohang Network Technology Co., Limited), "Blockchain address format test vectors", version 1.0.0.
+
+The strings in the data are facts or test values published in the specifications and documents listed in
+README.md ("Specification sources and licences"); this notice does not change the terms of those sources.
+The scripts in scripts/ are licensed separately under the MIT licence (see LICENSE).

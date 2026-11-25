@@ -1,0 +1,218 @@
+[
+ {
+  "family": "evm",
+  "name": "EVM-style accounts (Ethereum and the chains that reuse its address format)",
+  "chain_caip2": [
+   "eip155:{chainId}"
+  ],
+  "alphabet": "hexadecimal digits 0-9, a-f, A-F",
+  "lengths": "42 characters (0x + 40 hex digits = 20 bytes)",
+  "prefixes": "0x",
+  "checksum_algorithm": "optional EIP-55 mixed-case checksum (Keccak-256 of the lower-case hex)",
+  "case_rules": "all lower case or all upper case letters: no checksum asserted; mixed case: must equal the EIP-55 capitalisation; EIP-1191 defines a different capitalisation for some chains",
+  "memo_or_tag_convention": "none",
+  "memo_notes": "no address-level memo",
+  "spec_urls": [
+   "https://eips.ethereum.org/EIPS/eip-55",
+   "https://eips.ethereum.org/EIPS/eip-1191",
+   "https://ethereum.org/en/developers/docs/apis/json-rpc/#hex-encoding"
+  ]
+ },
+ {
+  "family": "btc",
+  "name": "Bitcoin",
+  "chain_caip2": [
+   "bip122:000000000019d6689c085ae165831e93"
+  ],
+  "alphabet": "Base58 (Bitcoin alphabet) for legacy forms; Bech32 for segwit forms",
+  "lengths": "25-byte Base58Check payload (26-35 characters); Bech32 up to 90 characters",
+  "prefixes": "version 0x00 (1...) and 0x05 (3...); HRP bc, witness version 0 (Bech32) or 1-16 (Bech32m)",
+  "checksum_algorithm": "Base58Check (double SHA-256); Bech32 / Bech32m",
+  "case_rules": "Base58 case sensitive; Bech32 all lower or all upper case, never mixed",
+  "memo_or_tag_convention": "none",
+  "memo_notes": "no address-level memo",
+  "spec_urls": [
+   "https://en.bitcoin.it/wiki/Base58Check_encoding",
+   "https://github.com/bitcoin/bips/blob/master/bip-0013.mediawiki",
+   "https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki",
+   "https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki",
+   "https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki",
+   "https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki"
+  ]
+ },
+ {
+  "family": "ltc",
+  "name": "Litecoin",
+  "chain_caip2": [
+   "bip122:12a765e31ffd4059bada1e25190f6e98"
+  ],
+  "alphabet": "Base58 for legacy forms; Bech32 for segwit forms",
+  "lengths": "25-byte Base58Check payload; Bech32 up to 90 characters",
+  "prefixes": "version 0x30 (L...), 0x32 (M...), 0x05 (3...); HRP ltc",
+  "checksum_algorithm": "Base58Check (double SHA-256); Bech32 / Bech32m",
+  "case_rules": "Base58 case sensitive; Bech32 all lower or all upper case",
+  "memo_or_tag_convention": "none",
+  "memo_notes": "no address-level memo",
+  "spec_urls": [
+   "https://github.com/litecoin-project/litecoin/blob/master/src/chainparams.cpp",
+   "https://github.com/litecoin-project/litecoin/blob/master/src/key_io.cpp",
+   "https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki",
+   "https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki"
+  ]
+ },
+ {
+  "family": "doge",
+  "name": "Dogecoin",
+  "chain_caip2": [
+   "bip122:1a91e3dace36e2be3bf030a65679fe82"
+  ],
+  "alphabet": "Base58",
+  "lengths": "25-byte Base58Check payload (33-34 characters)",
+  "prefixes": "version 0x1e (D...) and 0x16 (9... or A...)",
+  "checksum_algorithm": "Base58Check (double SHA-256)",
+  "case_rules": "case sensitive",
+  "memo_or_tag_convention": "none",
+  "memo_notes": "no address-level memo",
+  "spec_urls": [
+   "https://github.com/dogecoin/dogecoin/blob/master/src/chainparams.cpp",
+   "https://en.bitcoin.it/wiki/Base58Check_encoding"
+  ]
+ },
+ {
+  "family": "bch",
+  "name": "Bitcoin Cash",
+  "chain_caip2": [
+   "bip122:000000000000000000651ef99cb9fcbe"
+  ],
+  "alphabet": "CashAddr base32 (the Bech32 alphabet); Base58 for the legacy form",
+  "lengths": "CashAddr: 42 characters after the prefix for a 20-byte hash, up to 102 for 64 bytes; legacy: 25-byte payload",
+  "prefixes": "CashAddr prefix bitcoincash (may be omitted), type 0 (q...) and 1 (p...); legacy versions 0x00 and 0x05",
+  "checksum_algorithm": "CashAddr BCH code (40 bits); Base58Check for the legacy form",
+  "case_rules": "CashAddr all lower or all upper case, never mixed; legacy case sensitive",
+  "memo_or_tag_convention": "none",
+  "memo_notes": "no address-level memo",
+  "spec_urls": [
+   "https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/cashaddr.md"
+  ]
+ },
+ {
+  "family": "zec",
+  "name": "Zcash (transparent forms)",
+  "chain_caip2": [],
+  "alphabet": "Base58 (t1..., t3...); Bech32m (tex1...)",
+  "lengths": "26-byte Base58Check payload (35 characters); tex: 43 characters",
+  "prefixes": "two-byte versions 0x1cb8 (t1...) and 0x1cbd (t3...); HRP tex",
+  "checksum_algorithm": "Base58Check (double SHA-256); Bech32m",
+  "case_rules": "Base58 case sensitive; tex all lower or all upper case",
+  "memo_or_tag_convention": "none",
+  "memo_notes": "transparent addresses carry no memo; shielded outputs have an encrypted memo field (no shielded vectors in this release)",
+  "spec_urls": [
+   "https://github.com/zcash/zcash/blob/master/src/chainparams.cpp",
+   "https://zips.z.cash/zip-0320"
+  ]
+ },
+ {
+  "family": "sol",
+  "name": "Solana",
+  "chain_caip2": [
+   "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp"
+  ],
+  "alphabet": "Base58 (Bitcoin alphabet)",
+  "lengths": "32 to 44 characters; decodes to exactly 32 bytes",
+  "prefixes": "none",
+  "checksum_algorithm": "none",
+  "case_rules": "case sensitive",
+  "memo_or_tag_convention": "none",
+  "memo_notes": "no address-level memo",
+  "spec_urls": [
+   "https://github.com/anza-xyz/solana-sdk/blob/master/address/src/lib.rs",
+   "https://github.com/anza-xyz/solana-sdk/blob/master/sdk-ids/src/lib.rs"
+  ]
+ },
+ {
+  "family": "tron",
+  "name": "TRON",
+  "chain_caip2": [
+   "tron:728126428"
+  ],
+  "alphabet": "Base58 (Bitcoin alphabet); hex form",
+  "lengths": "Base58Check: 34 characters; hex: 42 characters",
+  "prefixes": "version byte 0x41 (T...)",
+  "checksum_algorithm": "Base58Check (double SHA-256); none for the hex form",
+  "case_rules": "Base58 case sensitive; hex form: either case (the documentation prints both)",
+  "memo_or_tag_convention": "none",
+  "memo_notes": "no address-level memo",
+  "spec_urls": [
+   "https://developers.tron.network/docs/account"
+  ]
+ },
+ {
+  "family": "near",
+  "name": "NEAR",
+  "chain_caip2": [],
+  "alphabet": "lower-case letters, digits, and the separators . - _",
+  "lengths": "2 to 64 characters",
+  "prefixes": "none; implicit accounts are 64 hex digits, Ethereum-like 0x + 40 hex, deterministic 0s + 40 hex, universal 0u + 52 characters (all satisfy the same grammar)",
+  "checksum_algorithm": "none",
+  "case_rules": "lower case only",
+  "memo_or_tag_convention": "memo",
+  "memo_notes": "no address-level memo; NEP-141 fungible-token transfers take an optional memo argument and custodial deposit services may require one",
+  "spec_urls": [
+   "https://docs.near.org/protocol/accounts-contracts/account-id",
+   "https://github.com/near/near-account-id-rs/blob/main/src/test_data.rs",
+   "https://github.com/near/near-account-id-rs/blob/main/src/validation.rs"
+  ]
+ },
+ {
+  "family": "ton",
+  "name": "TON",
+  "chain_caip2": [],
+  "alphabet": "user-friendly: base64 or base64url; raw: workchain, colon, 64 hex digits",
+  "lengths": "user-friendly: 48 characters (36 bytes); raw: 64 hex digits after the colon",
+  "prefixes": "flags 0x11 (E...) bounceable, 0x51 (U...) non-bounceable, +0x80 testnet-only (k..., 0...); workchain 0 or -1",
+  "checksum_algorithm": "CRC16-XMODEM (big-endian) for the user-friendly form; none for raw",
+  "case_rules": "base64 case sensitive; raw hex either case",
+  "memo_or_tag_convention": "comment",
+  "memo_notes": "transfer messages can carry a plaintext comment; deposit services commonly use it as a tag",
+  "spec_urls": [
+   "https://docs.ton.org/v3/documentation/smart-contracts/addresses/address-formats",
+   "https://docs.ton.org/v3/documentation/smart-contracts/message-management/internal-messages"
+  ]
+ },
+ {
+  "family": "xrp",
+  "name": "XRP Ledger",
+  "chain_caip2": [
+   "xrpl:0"
+  ],
+  "alphabet": "XRPL Base58 (rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz)",
+  "lengths": "classic: 25 to 35 characters; X-address: 47 characters",
+  "prefixes": "classic version 0x00 (r...); X-address prefix 0x05 0x44 (X...), testnet 0x04 0x93 (T...)",
+  "checksum_algorithm": "Base58Check with the XRPL alphabet (double SHA-256)",
+  "case_rules": "case sensitive",
+  "memo_or_tag_convention": "destination_tag",
+  "memo_notes": "32-bit unsigned destination tag, carried in the transaction or packed into an X-address",
+  "spec_urls": [
+   "https://xrpl.org/docs/concepts/accounts/addresses",
+   "https://github.com/XRPLF/XRPL-Standards/blob/master/XLS-0005-tagged-addresses/README.md"
+  ]
+ },
+ {
+  "family": "stellar",
+  "name": "Stellar",
+  "chain_caip2": [
+   "stellar:pubnet"
+  ],
+  "alphabet": "RFC 4648 base32, upper case, no padding",
+  "lengths": "G and C: 56 characters; M: 69 characters",
+  "prefixes": "G (account ID), M (muxed account), C (contract)",
+  "checksum_algorithm": "CRC16-XMODEM (little-endian) over version byte and payload",
+  "case_rules": "upper case only",
+  "memo_or_tag_convention": "memo",
+  "memo_notes": "transactions carry a memo; custodial deposits commonly require one (SEP-29); an M address embeds a 64-bit id",
+  "spec_urls": [
+   "https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0023.md",
+   "https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0029.md"
+  ]
+ }
+]

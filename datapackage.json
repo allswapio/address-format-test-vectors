@@ -1,0 +1,406 @@
+{
+  "$schema": "https://datapackage.org/profiles/2.0/datapackage.json",
+  "name": "address-format-test-vectors",
+  "title": "Blockchain address format test vectors",
+  "version": "1.0.0",
+  "created": "2026-11-26",
+  "description": "Labelled test strings for blockchain address validators in 12 address families. spec_valid is a property of the cited specification, not of a library.",
+  "keywords": [
+    "blockchain",
+    "address validation",
+    "test vectors"
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "AllSwap (Haohang Network Technology Co., Limited)",
+      "email": "service@allswap.io",
+      "path": "https://allswap.io/tools/address-validator",
+      "roles": [
+        "author",
+        "publisher"
+      ]
+    }
+  ],
+  "homepage": "https://allswap.io/tools/address-validator",
+  "resources": [
+    {
+      "name": "address-vectors",
+      "path": "data/address-vectors.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true,
+              "unique": true,
+              "pattern": "^[a-z]+-[0-9]{4}$"
+            },
+            "description": "Stable row identifier."
+          },
+          {
+            "name": "family",
+            "type": "string",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "evm",
+                "btc",
+                "ltc",
+                "doge",
+                "bch",
+                "zec",
+                "sol",
+                "tron",
+                "near",
+                "ton",
+                "xrp",
+                "stellar"
+              ]
+            },
+            "description": "Address family code."
+          },
+          {
+            "name": "chain_caip2",
+            "type": "string",
+            "constraints": {
+              "pattern": "^$|^[-a-z0-9]{3,8}:[-_a-zA-Z0-9]{1,32}$"
+            },
+            "description": "CAIP-2 identifier of the reference network; empty when none is registered."
+          },
+          {
+            "name": "network",
+            "type": "string",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "mainnet",
+                "testnet",
+                "none"
+              ]
+            },
+            "description": "Network of the form."
+          },
+          {
+            "name": "address",
+            "type": "string",
+            "constraints": {
+              "required": true
+            },
+            "description": "The test string, exactly as given."
+          },
+          {
+            "name": "encoding_form",
+            "type": "string",
+            "constraints": {
+              "required": true
+            },
+            "description": "Form of the string."
+          },
+          {
+            "name": "checksum_algorithm",
+            "type": "string",
+            "constraints": {
+              "required": true
+            },
+            "description": "Checksum algorithm of the form."
+          },
+          {
+            "name": "spec_valid",
+            "type": "boolean",
+            "constraints": {
+              "required": true
+            },
+            "description": "Well-formed mainnet address under the cited specification."
+          },
+          {
+            "name": "reason",
+            "type": "string",
+            "constraints": {
+              "enum": [
+                "",
+                "empty",
+                "whitespace",
+                "bad_charset",
+                "bad_length",
+                "bad_checksum",
+                "bad_version_byte",
+                "bad_prefix",
+                "wrong_network",
+                "mixed_case",
+                "bad_case",
+                "bad_witness_version",
+                "bad_program_length",
+                "bad_padding",
+                "wrong_checksum_constant",
+                "uri_wrapped",
+                "extra_data",
+                "other_family",
+                "not_address_type",
+                "bad_format"
+              ]
+            },
+            "description": "Reason when spec_valid is false; empty otherwise."
+          },
+          {
+            "name": "memo_or_tag_convention",
+            "type": "string",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "none",
+                "memo",
+                "comment",
+                "destination_tag"
+              ]
+            },
+            "description": "Family convention."
+          },
+          {
+            "name": "origin",
+            "type": "string",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "specification",
+                "public-well-known",
+                "derived",
+                "mutation"
+              ]
+            },
+            "description": "How the string was obtained."
+          },
+          {
+            "name": "source",
+            "type": "string",
+            "constraints": {
+              "required": true
+            },
+            "description": "Where the value comes from or which rule produced it."
+          },
+          {
+            "name": "source_url",
+            "type": "string",
+            "format": "uri",
+            "constraints": {
+              "required": true,
+              "pattern": "^https://"
+            },
+            "description": "Specification URL."
+          },
+          {
+            "name": "notes",
+            "type": "string",
+            "description": "Remarks."
+          },
+          {
+            "name": "multichain_memo_address_validator_1_0_0",
+            "type": "boolean",
+            "constraints": {
+              "required": true
+            },
+            "description": "inspectAddress(...).valid of multichain-memo-address-validator 1.0.0."
+          }
+        ],
+        "primaryKey": [
+          "id"
+        ],
+        "uniqueKeys": [
+          [
+            "family",
+            "address"
+          ]
+        ],
+        "missingValues": []
+      }
+    },
+    {
+      "name": "address-families",
+      "path": "data/address-families.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "family",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "chain_caip2",
+            "type": "array",
+            "arrayItem": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "alphabet",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "lengths",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "prefixes",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "checksum_algorithm",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "case_rules",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "memo_or_tag_convention",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "memo_notes",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "spec_urls",
+            "type": "array",
+            "arrayItem": {
+              "type": "string"
+            }
+          }
+        ],
+        "primaryKey": [
+          "family"
+        ],
+        "missingValues": []
+      }
+    },
+    {
+      "name": "cross-family-ambiguities",
+      "path": "data/cross-family-ambiguities.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "constraints": {
+              "required": true,
+              "unique": true,
+              "pattern": "^amb-[0-9]{4}$"
+            }
+          },
+          {
+            "name": "kind",
+            "type": "string",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "same_string",
+                "same_bytes",
+                "not_ambiguous_control"
+              ]
+            }
+          },
+          {
+            "name": "string",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "families_valid",
+            "type": "array",
+            "arrayItem": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "related",
+            "type": "array",
+            "arrayItem": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "what_it_shows",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "source",
+            "type": "string",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "source_url",
+            "type": "string",
+            "format": "uri",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "notes",
+            "type": "string"
+          }
+        ],
+        "primaryKey": [
+          "id"
+        ],
+        "missingValues": []
+      }
+    }
+  ]
+}

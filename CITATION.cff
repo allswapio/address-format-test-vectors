@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+type: dataset
+title: "Blockchain address format test vectors"
+version: "1.0.0"
+date-released: "2026-11-26"
+license: CC-BY-4.0
+url: "https://allswap.io/tools/address-validator"
+abstract: "1386 labelled strings for testing blockchain address validators across 12 address families. Each label states whether the string is a well-formed mainnet address under the cited specification."
+keywords:
+  - blockchain
+  - address validation
+  - test vectors
+  - checksum
+  - Bech32
+  - Base58Check
+  - EIP-55
+authors:
+  - name: "AllSwap (Haohang Network Technology Co., Limited)"
+    email: "service@allswap.io"
+    website: "https://allswap.io/tools/address-validator"

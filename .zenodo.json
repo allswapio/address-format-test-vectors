@@ -1,0 +1,37 @@
+{
+  "title": "Blockchain address format test vectors",
+  "upload_type": "dataset",
+  "description": "Labelled test strings for blockchain address validators in 12 address families (EVM-style accounts, Bitcoin, Litecoin, Dogecoin, Bitcoin Cash, Zcash transparent, Solana, TRON, NEAR, TON, XRP Ledger, Stellar). Each row states whether the string is a well-formed mainnet address under the cited specification, with the reason when it is not, the origin of the string (specification, public-well-known, derived or mutation) and the specification URL. Includes a table of family formats and a table of cross-family ambiguities. Parts were prepared with AI coding tools; labels are checked by two independent implementations.",
+  "version": "1.0.0",
+  "publication_date": "2026-11-26",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "creators": [
+    {
+      "name": "AllSwap (Haohang Network Technology Co., Limited)"
+    }
+  ],
+  "keywords": [
+    "blockchain",
+    "address validation",
+    "test vectors",
+    "checksum",
+    "Bech32",
+    "Base58Check",
+    "EIP-55",
+    "CashAddr",
+    "StrKey"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/allswapio/multichain-memo-address-validator",
+      "relation": "isDerivedFrom",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://allswap.io/tools/address-validator",
+      "relation": "references",
+      "scheme": "url"
+    }
+  ]
+}

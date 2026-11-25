@@ -1,0 +1,181 @@
+[
+ {
+  "id": "amb-0001",
+  "kind": "same_string",
+  "string": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+  "families_valid": [
+   "btc",
+   "bch"
+  ],
+  "related": [],
+  "what_it_shows": "Base58Check version 0x00: the Bitcoin P2PKH string is also the legacy-format Bitcoin Cash address of the same hash. Nothing in the string says which chain it is for.",
+  "source": "Bitcoin genesis-block address (Bitcoin Wiki); CashAddr specification, legacy format",
+  "source_url": "https://github.com/bitcoincashorg/bitcoincash.org/blob/master/spec/cashaddr.md",
+  "notes": ""
+ },
+ {
+  "id": "amb-0002",
+  "kind": "same_string",
+  "string": "3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy",
+  "families_valid": [
+   "btc",
+   "ltc",
+   "bch"
+  ],
+  "related": [],
+  "what_it_shows": "Base58Check version 0x05: a Bitcoin P2SH address is byte-identical to a legacy Litecoin P2SH address (version 5, SCRIPT_ADDRESS) and to a legacy Bitcoin Cash P2SH address.",
+  "source": "Bitcoin Wiki Address page; Litecoin Core chainparams.cpp and key_io.cpp; CashAddr specification",
+  "source_url": "https://github.com/litecoin-project/litecoin/blob/master/src/key_io.cpp",
+  "notes": "Litecoin also uses version 0x32 (M...) for P2SH. A 3... string sent to the wrong chain is a valid address there, controlled by the holder of the script."
+ },
+ {
+  "id": "amb-0003",
+  "kind": "same_string",
+  "string": "0x5aaeb6053f3e94c9b9a09f33669435e7ef1beaed",
+  "families_valid": [
+   "evm",
+   "near"
+  ],
+  "related": [],
+  "what_it_shows": "A lower-case 0x + 40 hex string is an EVM address (no checksum asserted) and a NEAR Ethereum-like account ID.",
+  "source": "EIP-55 test case in lower case; NEAR documentation, Ethereum-like address",
+  "source_url": "https://docs.near.org/protocol/accounts-contracts/account-id",
+  "notes": ""
+ },
+ {
+  "id": "amb-0004",
+  "kind": "same_string",
+  "string": "11111111111111111111111111111111",
+  "families_valid": [
+   "sol",
+   "near"
+  ],
+  "related": [],
+  "what_it_shows": "The Solana system program id (32 zero bytes in Base58) is also a well-formed NEAR account ID (32 digits).",
+  "source": "solana-sdk-ids (system program); near-account-id-rs validation rules",
+  "source_url": "https://github.com/near/near-account-id-rs/blob/main/src/validation.rs",
+  "notes": ""
+ },
+ {
+  "id": "amb-0005",
+  "kind": "same_string",
+  "string": "bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4",
+  "families_valid": [
+   "btc",
+   "near"
+  ],
+  "related": [],
+  "what_it_shows": "A lower-case Bitcoin Bech32 address satisfies the NEAR account ID grammar (lower-case letters and digits, 42 characters).",
+  "source": "BIP-173 example; near-account-id-rs validation rules",
+  "source_url": "https://github.com/near/near-account-id-rs/blob/main/src/validation.rs",
+  "notes": "An application that accepts a NEAR account ID after a Bitcoin address was pasted into the wrong field cannot tell from the string alone."
+ },
+ {
+  "id": "amb-0006",
+  "kind": "same_string",
+  "string": "qpm2qsznhks23z7629mms6s4cwef74vcwvy22gdx6a",
+  "families_valid": [
+   "bch",
+   "near"
+  ],
+  "related": [],
+  "what_it_shows": "A CashAddr without its prefix is a well-formed NEAR account ID.",
+  "source": "CashAddr specification example without prefix; near-account-id-rs validation rules",
+  "source_url": "https://github.com/near/near-account-id-rs/blob/main/src/validation.rs",
+  "notes": ""
+ },
+ {
+  "id": "amb-0007",
+  "kind": "not_ambiguous_control",
+  "string": "0x52908400098527886E0F7030069857D2E4169EE7",
+  "families_valid": [
+   "evm"
+  ],
+  "related": [],
+  "what_it_shows": "Upper-case hex digits are valid for EVM but not for NEAR (account IDs are lower case), so this string is not ambiguous with NEAR.",
+  "source": "EIP-55 test case",
+  "source_url": "https://eips.ethereum.org/EIPS/eip-55",
+  "notes": ""
+ },
+ {
+  "id": "amb-0008",
+  "kind": "not_ambiguous_control",
+  "string": "d75a980182b10ab7d54bfed3c964073a0ee172f3daa62325af021a68f707511a",
+  "families_valid": [
+   "near"
+  ],
+  "related": [],
+  "what_it_shows": "64 lower-case hex digits: a NEAR implicit account ID and also the usual hex form of a 32-byte Ed25519 public key; it contains 0 and is not Base58, so it is not a Solana address.",
+  "source": "RFC 8032 section 7.1 test 1 public key; NEAR documentation, implicit address",
+  "source_url": "https://docs.near.org/protocol/accounts-contracts/account-id",
+  "notes": ""
+ },
+ {
+  "id": "amb-0009",
+  "kind": "same_bytes",
+  "string": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+  "families_valid": [
+   "btc",
+   "bch"
+  ],
+  "related": [
+   "ltc:LUEweDxDA4WhvWiNXXSxjM9CYzHPJv4QQF",
+   "doge:DEA5vGb2NpAwCiCp5yTE16F3DueQUVivQp",
+   "zec:t1StbPM4X3j4FGM57HpGnb9BMbS7C1nFW1r",
+   "tron:TJzCP527E8Pbpt5qwf7NyUmaFZfRQhiAJx",
+   "xrp:rwrzPrePnQGeC5pDMPTCTLnSLmvfD5vC42",
+   "bch:bitcoincash:qp3wjpa3tjlj042z2wv7hahsldgwhwy0rq9sywjpyy",
+   "btc:bc1qvt5s0v2uhuna2sjnn84ldu8m2r4m3rcc4048ry"
+  ],
+  "what_it_shows": "The same 20-byte hash160 of the Bitcoin genesis-block address appears under seven address encodings: the strings differ, the bytes are the same. Whoever holds the key for one holds it for all of them.",
+  "source": "Bitcoin Wiki Genesis block page; the encodings of each family",
+  "source_url": "https://en.bitcoin.it/wiki/Base58Check_encoding",
+  "notes": "A different version byte or alphabet is the only thing separating them; Base58Check detects a wrong version only if the receiver checks it."
+ },
+ {
+  "id": "amb-0010",
+  "kind": "same_bytes",
+  "string": "0:d75a980182b10ab7d54bfed3c964073a0ee172f3daa62325af021a68f707511a",
+  "families_valid": [
+   "ton"
+  ],
+  "related": [
+   "near:d75a980182b10ab7d54bfed3c964073a0ee172f3daa62325af021a68f707511a",
+   "sol:FVen3X669xLzsi6N2V91DoiyzHzg1uAgqiT8jZ9nS96Z",
+   "stellar:GDLVVGABQKYQVN6VJP7NHSLEA45A5YLS6PNKMIZFV4BBU2HXA5IRVHUR"
+  ],
+  "what_it_shows": "The 32-byte Ed25519 public key of RFC 8032 test 1 as a TON raw account id, a NEAR implicit account, a Solana address and a Stellar account ID.",
+  "source": "RFC 8032 section 7.1",
+  "source_url": "https://www.rfc-editor.org/rfc/rfc8032",
+  "notes": "A TON account id is a contract-state hash, not a public key; the raw form is only used here as a 32-byte container."
+ },
+ {
+  "id": "amb-0011",
+  "kind": "same_bytes",
+  "string": "0x8840E6C55B9ADA326D211D818C34A994AECED808",
+  "families_valid": [
+   "evm"
+  ],
+  "related": [
+   "tron:TNPeeaaFB7K9cmo4uQpcU32zGK8G1NYqeL",
+   "tron:418840E6C55B9ADA326D211D818C34A994AECED808"
+  ],
+  "what_it_shows": "The 20 bytes after the 41 prefix of a TRON hex address are the Ethereum-form address; TRON documentation says so.",
+  "source": "TRON developer documentation, Accounts",
+  "source_url": "https://developers.tron.network/docs/account",
+  "notes": "The 0x-prefixed string with upper-case letters and no lower-case letters is a valid EVM string (single case)."
+ },
+ {
+  "id": "amb-0012",
+  "kind": "same_bytes",
+  "string": "0x27b1FdB04752BBc536007A920D24ACB045561c26",
+  "families_valid": [],
+  "related": [
+   "evm:0x27b1fdb04752bbc536007a920d24acb045561c26"
+  ],
+  "what_it_shows": "Same 20 bytes, two checksum conventions: the capitalisation above is the EIP-1191 checksum for chain id 30 (RSK mainnet); it is not the EIP-55 capitalisation, so an EIP-55 validator rejects it.",
+  "source": "EIP-1191 test cases, list rsk_mainnet",
+  "source_url": "https://eips.ethereum.org/EIPS/eip-1191",
+  "notes": "The lower-case form of the same bytes is valid EVM (no checksum asserted)."
+ }
+]
